@@ -4,7 +4,7 @@ public class Day31_MagicNumber {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int num=12345;
+		int num=12345678;
 		int OriginalValue=num;
 		int sum=0, value=1;
 		while(num>0)
@@ -15,14 +15,19 @@ public class Day31_MagicNumber {
 		}
 		System.out.println("Sum of Digits: "+sum);
 		int finalValue=0;
-		while(sum>0)
+		for(;sum>9;) 
 		{
-			int digit1=sum%10;
-			finalValue= finalValue+digit1;
-			sum=sum/10;
+			while(sum>0)
+			{
+				int digit1=sum%10;
+				finalValue= finalValue+digit1;
+				sum=sum/10;
+			}
+			sum = finalValue;
+			finalValue=0;
 		}
-		System.out.println("Final Digit= "+finalValue);
-		if(finalValue==value)
+		System.out.println("Final Digit= "+sum);
+		if(sum==value)
 		{
 			System.out.println(OriginalValue +" is a magic number");
 		}
